@@ -56,7 +56,7 @@ class FECRIS2D:
         arrStab = (gaussian_2d(NewState[0], NewState[1], S[0], S[1], S[2], S[3], S[4]))
         departure = (gaussian_2d(self.State[0], self.State[1], P[0], P[1], P[2], P[3], P[4]))
         depStab = (gaussian_2d(self.State[0], self.State[1], S[0], S[1], S[2], S[3], S[4]))
-        ret = departure + (np.arctan(stretch * (self.time - 20))*2/np.pi + 1) * (arrival - departure) /2 + np.random.randn() * (np.arctan(stretch*(self.time - 20)) *2/np.pi +1 ) * (arrStab - depStab)/2 + depStab
+        ret = departure + (np.arctan(stretch * (self.time - 20))*2/np.pi + 1) * (arrival - departure) /2 + np.random.randn() * ((np.arctan(stretch*(self.time - 20)) *2/np.pi +1 ) * (arrStab - depStab)/2 + depStab)
         return  ret
 
     def SetState(self, State):
